@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {
+      "pathPattern": "/play/**",
+      "apiPath": "https://handcricket.fun/play/**"
+    }
+  ]
+}
