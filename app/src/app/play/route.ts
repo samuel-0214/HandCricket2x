@@ -2,7 +2,6 @@ import {
   Action,
   ActionError,
   ActionPostRequest,
-  ActionPostResponse,
   createActionHeaders,
   createPostResponse,
 } from "@solana/actions";
@@ -12,10 +11,7 @@ import {
   PublicKey,
   SystemProgram,
   Transaction,
-  TransactionInstruction,
   LAMPORTS_PER_SOL,
-  Keypair,
-  ComputeBudgetProgram,
 } from "@solana/web3.js";
 
 const scoreMap = new Map<string, number>();
@@ -137,7 +133,7 @@ export const POST = async (req: Request) => {
       const accountKey = userPubkey.toBase58();
       let currentScore = scoreMap.get(accountKey) || 0;
       const computerMove = getComputerMove();
-      let isOut = userChoice === computerMove;
+      const isOut = userChoice === computerMove;
       let message = `You played ${userChoice}, computer played ${computerMove}. `;
 
       if (!isOut) {
